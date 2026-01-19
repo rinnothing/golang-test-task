@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: Integer storage
+  version: "1.0.0"
+
+paths:
+  /integer/add:
+    post:
+      summary: Add integer to storage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: integer
+            example:
+              1
+      responses:
+        '201':
+          description: All integers sorted in ascending order
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+              example:
+                [1, 2, 3]
+        '400':
+          description: Not a number
+          content:
+            application/json: {}
